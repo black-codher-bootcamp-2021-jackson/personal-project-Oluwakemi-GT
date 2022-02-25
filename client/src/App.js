@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
-import LoginForm from "./components/LoginForm";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Home } from "./components/Home";
+import BusinessPlanContainer from "./components/BusinessPlanContainer";
+
 
 import LoginFormStyle from "././styles/LoginFormStyle.css"
+import AppStyle from "././styles/AppStyle.css"
+
 
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+// import { getAllProfiles } from "./services/profileService";
+
+import { getAllUsers } from "./services/userService";
+import { getAllWordbank } from "./services/wordbankService";
+
 
 // function App() {
 //   const [profiles, setProfiles] = useState(null);
@@ -47,45 +56,15 @@ import { getAllProfiles } from "./services/profileService";
 // }
 
 function App() {
-  const adminUser = {
-    email: "admin@user.com",
-    password: "admin123"
-  }
-
-  const [user, setUser] = useState({ name: "", email: "" }); //default user setting
-  const [error, setError] = useState("");
-
-  const Login = details => {
-    console.log(details);
-
-    if (details.email == adminUser.email && details.password == adminUser.password) {
-      console.log("Logged in");
-      setUser({
-        name: details.name,
-        email: details.email,
-      });
-    } else {
-      console.log("Incorrect, try something else.");
-      setError("Incorrect, try something else.");
-    }
-  }
-
-  const Logout = () => {
-    setUser({ name: "", email: "" }); //Logout returns to default user setting (empty)
-  }
 
   return (
-    <div className="App">
-      {(user.email != "") ? (         //if the user email is NOT showing nothing, display welcome message
-        <div className="welcome">
-          <h2>Welcome, <span>{user.name}</span></h2>
-          <button onClick={Logout}>Logout</button>
-        </div>
-      ) : (
-          <LoginForm Login={Login} error={error}/>
-      )}
-     
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="plan" element={<BusinessPlanContainer/>}/>
+      </Routes>
+    </Router>
+
   );
 }
 export default App;
