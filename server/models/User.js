@@ -7,7 +7,7 @@ const userSchema = new Schema({
     email: String,
     password: String,
     created_at: Date,
-    avatar_url: URL,
+    avatar_url: String,
 });
 
 mongoose.model("user", userSchema);

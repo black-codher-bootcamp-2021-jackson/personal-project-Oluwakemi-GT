@@ -40,7 +40,7 @@ export function Home() {
             <button onClick={Logout}>Logout</button>
             <Link to="plan"><button>Start new plan</button></Link>
             <button>Previous plans</button>
-            <Link to="/">Home</Link>
+            <Link to="/"><button>Home</button></Link>
           </div>
         </>
 

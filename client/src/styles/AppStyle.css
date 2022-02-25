@@ -27,7 +27,8 @@ input, button {
   outline: none;
 }
 
-.section-title button  {
+
+.section-title button {
     justify-content: center;
     /* display: inline-block; */
     padding: 10px 15px;

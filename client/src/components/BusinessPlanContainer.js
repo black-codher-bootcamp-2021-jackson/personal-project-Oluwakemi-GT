@@ -18,7 +18,7 @@ export const BusinessPlanContainer = () => {
            </div>
 
            <div>
-                <Link to="/marketing"><button>Marketing {getAllWordbank}</button></Link>
+                <Link to="/marketing"><button>Marketing {getAllWordbank.Marketing}</button></Link>
            </div>
 
            <div>
